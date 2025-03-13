@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mazaaq Factory - Random Joke Generator</title>
+    <link rel="stylesheet" href="joke.css">
+    <script src="joke.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <header>
+        <h1>😂 Mazaaq Factory</h1>
+        <p>Generate random jokes and have a laugh!</p>
+    </header>
+
+    <main>
+        <!-- Category -->
+        <section>
+            <label for="category">Select Category:</label>
+            <select id="category">
+                <option value="Any">Any</option>
+                <option value="Custom">Custom</option>
+            </select>
+
+            <!-- Custom Categories -->
+            <div id="customCategories" style="display: none; margin-top: 5px;">
+                <p style="margin: 0;">Select one or more categories:</p>
+                <label><input type="checkbox" value="Programming"> Programming</label>
+                <label><input type="checkbox" value="Misc"> Misc</label>
+                <label><input type="checkbox" value="Dark"> Dark</label>
+                <label><input type="checkbox" value="Pun"> Pun</label>
+                <label><input type="checkbox" value="Spooky"> Spooky</label>
+                <label><input type="checkbox" value="Christmas"> Christmas</label>
+            </div>
+        </section>
+
+        <!-- Language -->
+        <section>
+            <label for="language">Select Language:</label>
+            <select id="language">
+                <option value="en">English</option>
+                <option value="de">German</option>
+                <option value="cs">Czech</option>
+                <option value="es">Spanish</option>
+                <option value="pt">Portuguese</option>
+                <option value="fr">French</option>
+            </select>
+        </section>
+
+        <!-- Blacklist Flags -->
+        <section>
+            <label>Blacklist Flags (Optional):</label>
+            <div id="blacklistFlags">
+                <div><input type="checkbox" value="nsfw" id="flag-nsfw"> <label for="flag-nsfw">NSFW</label></div>
+                <div><input type="checkbox" value="religious" id="flag-religious"> <label for="flag-religious">Religious</label></div>
+                <div><input type="checkbox" value="political" id="flag-political"> <label for="flag-political">Political</label></div>
+                <div><input type="checkbox" value="racist" id="flag-racist"> <label for="flag-racist">Racist</label></div>
+                <div><input type="checkbox" value="sexist" id="flag-sexist"> <label for="flag-sexist">Sexist</label></div>
+                <div><input type="checkbox" value="explicit" id="flag-explicit"> <label for="flag-explicit">Explicit</label></div>
+            </div>
+        </section>
+
+        <!-- Amount -->
+        <section>
+            <label for="amount">Number of Jokes (1-5):</label>
+            <input type="number" id="amount" min="1" max="5" value="1">
+        </section>
+
+        <!-- Search -->
+        <section>
+            <label for="search">Search for a Joke (Optional):</label>
+            <input type="text" id="search" placeholder="Enter a keyword">
+        </section>
+
+        <!-- Generate Jokes -->
+        <section>
+            <button id="generate">Generate Jokes</button>
+        </section>
+
+        <!-- Display Jokes -->
+        <section id="jokeResults"></section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Mazaaq Factory. Have a laugh, share the fun!</p>
+    </footer>
+
+    <!-- jQuery Script to Toggle Custom Categories -->
+    <script>
+        $(document).ready(function() {
+            $("#customCategories").hide();
+
+            $("#category").change(function() {
+                if ($(this).val() === "Custom") {
+                    $("#customCategories").show();
+                } else {
+                    $("#customCategories").hide();
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
